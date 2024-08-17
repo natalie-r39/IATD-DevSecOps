@@ -75,7 +75,7 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/devops-labs:dast-test          
   build:
-    needs: test
+    needs: sonarqube
     runs-on: ubuntu-latest
     steps:
       - 
