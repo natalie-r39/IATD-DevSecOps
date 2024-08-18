@@ -27,7 +27,7 @@ jobs:
           path: junit/test-results.xml
   sonarqube:
     needs: test
-    if: false
+    if: true
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -53,7 +53,7 @@ jobs:
         path: sonarqube-report.json
   dast:
     needs: test
-    if: false
+    if: true
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -137,7 +137,7 @@ jobs:
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/devops-labs:latest
   submit_results:
     needs: [build]
-    if: false
+    if: true
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
