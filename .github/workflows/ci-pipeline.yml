@@ -114,7 +114,7 @@ jobs:
           name: zap-report
           path: report_json.json        
   build:
-    needs: [sonarqube, dast]
+    needs: [sonarqube, dast, image-scan, security_gate]
     runs-on: ubuntu-latest
     steps:
       - 
