@@ -136,7 +136,7 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/devops-labs:latest
   submit_results:
-    needs: build
+    needs: [dast,image-scan,sonarqube]
     if: true
     runs-on: ubuntu-latest
     steps:
