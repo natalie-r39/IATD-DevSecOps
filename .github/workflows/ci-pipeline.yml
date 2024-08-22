@@ -115,6 +115,7 @@ jobs:
           path: report_json.json        
   build:
     needs: [sonarqube, dast, image-scan, security_gate]
+    if: true
     runs-on: ubuntu-latest
     steps:
       - 
